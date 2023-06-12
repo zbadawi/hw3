@@ -67,9 +67,11 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
-
-
-
+struct isEven {
+    bool operator()(int value) const {
+        return value % 2 == 0;
+    }
+};
 
 int main(int argc, char* argv[])
 {
@@ -85,11 +87,13 @@ int main(int argc, char* argv[])
     cout << "Original list: ";
     print(head);
 
+    isEven c;
+
     // Test out your linked list code
+    head = llfilter(head, c);
 
+    cout << "filtered list: ";
+    print(head);
 
-
-    
     return 0;
-
 }
